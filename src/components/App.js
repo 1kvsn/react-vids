@@ -40,7 +40,8 @@ class App extends React.Component {
 			<Router>
 				<div>
 					<Header authUser={this.state.authUser} />
-					<Route exact path={'/'} component={LandingPage} />
+					{/* '/' route should have Landing page for non-auth users */}
+					<Route exact path={'/'} component={HomePage} />
 					<Route path={'/signup'} component={SignUpPage} />
 					<Route path={'/signin'} component={SignInPage} />
 					<Route path={'/home'} component={HomePage} />

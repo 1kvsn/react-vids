@@ -108,7 +108,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleBig Buck Bunny - take four',
+				title: 'Big Buck Bunny - take four',
 				url: Nineth,
 				source: [
 					{
@@ -135,7 +135,9 @@ class Home extends React.Component {
 
 
 	render() {
-		const second = this.state.videos.slice(5, 9)
+		const secondRow = this.state.videos.slice(5, 9)
+		const thirdRow = this.state.videos.slice(6, 10)
+
 		return (
 			<>
 				<section className="wrapper">
@@ -228,7 +230,7 @@ class Home extends React.Component {
 				{/* Second Row */}
 				<section className="wrapper">
 					<div className="carousel-container">
-						<h1>Our recommendations</h1>
+						<h1>Our Recommendations</h1>
 						<ItemsCarousel
 							Placeholder configurations
 							enablePlaceholder
@@ -243,7 +245,53 @@ class Home extends React.Component {
 							firstAndLastGutter={false}
 						>
 							{
-								second.map((video, i) => {
+								secondRow.map((video, i) => {
+									return (
+										<div>
+											<Link
+												to={{
+													pathname: `videos/${video.title}`,
+													state: {
+														source: video.source
+													}
+												}}
+											>
+												<Videojs
+													autoplay={false}
+													width={250}
+													height={150}
+													controls={false}
+													sources={video.source}
+													poster={video.poster ? video.poster : ''}
+												/>
+											</Link>
+											<h4>{video.title}</h4>
+										</div>
+									)
+								})
+							}
+						</ItemsCarousel>
+					</div>
+				</section>
+				{/* Third row */}
+				<section className="wrapper">
+					<div className="carousel-container">
+						<h1>Watch Later</h1>
+						<ItemsCarousel
+							Placeholder configurations
+							enablePlaceholder
+							numberOfPlaceholderItems={0}
+							minimumPlaceholderTime={1000}
+							placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
+
+							// Carousel configurations
+							numberOfCards={4}
+							gutter={12}
+							showSlither={false}
+							firstAndLastGutter={false}
+						>
+							{
+								thirdRow.map((video, i) => {
 									return (
 										<div>
 											<Link

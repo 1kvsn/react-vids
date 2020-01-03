@@ -9,7 +9,7 @@ export default class Videojs extends React.Component {
   componentDidMount() {
     // instantiate video.js
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
-      console.log('onPlayerReady', this);
+      // console.log('onPlayerReady', this);
     });
 
     this.player.on('on', () => {

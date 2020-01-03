@@ -2,6 +2,7 @@ import React from 'react';
 
 import Videojs from './Video';
 
+// End Cards data
 const sampleData = [
   {
     name: 'bunny',
@@ -18,8 +19,9 @@ const sampleData = [
 class VideoPlayer extends React.Component {
 
 	render() {
+		const video = this.props.match.params.id
 		return (
-			<section>
+			<section className="player-container">
 				<Videojs
 					autoplay={false}
 					playbackRates={[0.5, 1, 1.25, 1.5, 2]}
@@ -29,6 +31,7 @@ class VideoPlayer extends React.Component {
 					sources={this.props.location.state.source}
 					endScreenData={sampleData} 
 				/>
+				<p>{video}</p>
 			</section>
 		)
 	}

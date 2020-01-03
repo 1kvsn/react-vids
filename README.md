@@ -4,14 +4,10 @@
 
 ## Features
 
-* Firebase login system implemented.
+* Firebase authentication implemented.
 * Displays all videos in carousel view in homepage.
-* Click on any video and it opens up in player mode. It displays currently played video in the right side along with other videos in the queue.
+* Click on any video and it opens up in player mode.
 * When a video ends, overlay cards show up suggesting next content to watch.
-
-TODO:
-
-1. Keep track of view count in videos.
 
 
 ## Available Scripts
