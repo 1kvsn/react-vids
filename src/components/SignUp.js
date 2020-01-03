@@ -5,8 +5,7 @@ import { withFirebase } from '../components/Firebase';
 
 
 const SignUpPage = () => (
-	<div>
-		<h1>SignUp</h1>
+	<div className="login-wrapper">
 		<SignUpForm />
 	</div>
 );
@@ -63,47 +62,50 @@ class SignUpFormBase extends Component {
 			username === '';
 
 		return (
-			<form onSubmit={this.onSubmit}>
-				<input
-					name="username"
-					value={username}
-					onChange={this.onChange}
-					type="text"
-					placeholder="Full Name"
-				/>
-				<input
-					name="email"
-					value={email}
-					onChange={this.onChange}
-					type="text"
-					placeholder="Email Address"
-				/>
-				<input
-					name="passwordOne"
-					value={passwordOne}
-					onChange={this.onChange}
-					type="password"
-					placeholder="Password"
-				/>
-				<input
-					name="passwordTwo"
-					value={passwordTwo}
-					onChange={this.onChange}
-					type="password"
-					placeholder="Confirm Password"
-				/>
-				<button disabled={isInvalid} type="submit">
-					Sign Up
-        </button>
-				{error && <p>{error.message}</p>}
-			</form>
+			<section className="form-container">
+				<form onSubmit={this.onSubmit} className="form">
+					<h1>Sign Up</h1>
+					<input
+						name="username"
+						value={username}
+						onChange={this.onChange}
+						type="text"
+						placeholder="Full Name"
+					/>
+					<input
+						name="email"
+						value={email}
+						onChange={this.onChange}
+						type="text"
+						placeholder="Email Address"
+					/>
+					<input
+						name="passwordOne"
+						value={passwordOne}
+						onChange={this.onChange}
+						type="password"
+						placeholder="Password"
+					/>
+					<input
+						name="passwordTwo"
+						value={passwordTwo}
+						onChange={this.onChange}
+						type="password"
+						placeholder="Confirm Password"
+					/>
+					<button disabled={isInvalid} type="submit">
+						Sign Up
+        	</button>
+					{error && <p>{error.message}</p>}
+				</form>
+			</section>
 		);
 	}
 }
 
 
 const SignUpLink = () => (
-	<p style={{ textAlign: 'center', marginTop: '30px', textDecoration: 'none'}}>
+	<p style={{ textAlign: 'center', marginTop: '30px', textDecoration: 'none' }}>
 		Don't have an account? <Link to={'/signup'} >Sign Up</Link>
 	</p>
 );
