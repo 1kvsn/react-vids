@@ -1,10 +1,17 @@
 import React from 'react';
 import { withFirebase } from './Firebase';
+import { Icon } from 'antd';
 
 const SignOutButton = ({ firebase }) => (
-  <button type="button" onClick={firebase.doSignOut}>
-    Sign Out
-  </button>
+  <Icon 
+    type="logout" 
+    onClick={firebase.doSignOut} 
+    style={{
+      fontSize: '24px',
+      color: 'black',
+      cursor: 'pointer'
+    
+    }} />
 );
 
 export default withFirebase(SignOutButton);

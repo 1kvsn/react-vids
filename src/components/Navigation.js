@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { Icon } from 'antd';
 import SignOutButton from './SignOut';
 
 const Navigation = ({ authUser }) => (
@@ -8,12 +8,31 @@ const Navigation = ({ authUser }) => (
 );
 
 const NavigationAuth = () => (
-  <ul>
-    <li>
-      <Link to={'/'}>Landing</Link>
+  <ul className="nav-link-container">
+    <li style={{
+      
+    }}>
+      <Link 
+        to={'/'} 
+        style={{
+          textDecoration: 'none',
+          fontSize: '22px',
+          color: 'black',
+        }}>
+        Landing
+      </Link>
     </li>
     <li>
-      <Link to={'/home'}>Home</Link>
+      <Link to={'/home'}>
+        <Icon 
+          type="home"
+          style={{
+            fontSize: '24px',
+            color: 'black',
+            
+          }}
+        />
+      </Link>
     </li>
     <li>
       <SignOutButton />
@@ -22,12 +41,28 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <ul>
+  <ul className="nav-link-container">
     <li>
-      <Link to={'/'}>Landing</Link>
+      <Link 
+        to={'/'} 
+        style={{
+          textDecoration: 'none',
+          fontSize: '22px',
+          color: 'black',
+        }}>
+          Landing
+      </Link>
     </li>
     <li>
-      <Link to={'/signin'}>Sign In</Link>
+      <Link 
+        to={'/signin'}
+        style={{
+          textDecoration: 'none',
+          fontSize: '22px',
+          color: 'black',
+        }}>
+        Sign In
+      </Link>
     </li>
   </ul>
 );

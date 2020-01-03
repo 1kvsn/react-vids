@@ -14,7 +14,9 @@ import {
 	Eighth,
 	Nineth,
 	Tenth,
-	posterEight
+	posterThree,
+	posterFive,
+	posterEight,
 } from '../assets';
 
 import ItemsCarousel from 'react-items-carousel';
@@ -24,7 +26,7 @@ class Home extends React.Component {
 	state = {
 		videos: [
 			{
-				title: 'sampleOne',
+				title: 'View of Earth from outer space',
 				url: First,
 				source: [
 					{
@@ -34,7 +36,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleTwo',
+				title: 'Random cartoon characters',
 				url: Second,
 				source: [
 					{
@@ -44,7 +46,8 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleThree',
+				title: 'another animated movie clip',
+				poster: posterThree,
 				url: Third,
 				source: [
 					{
@@ -54,7 +57,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleFour',
+				title: 'Big Buck Bunny - take one',
 				url: Fourth,
 				source: [
 					{
@@ -64,8 +67,9 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleFive',
+				title: 'Big Buck Bunny - take two',
 				url: Fifth,
+				poster: posterFive,
 				source: [
 					{
 						src: Fifth,
@@ -74,7 +78,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleSix',
+				title: 'Big Buck Bunny - take three',
 				url: Sixth,
 				source: [
 					{
@@ -84,7 +88,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleSeven',
+				title: 'waves',
 				url: Seventh,
 				source: [
 					{
@@ -94,7 +98,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleEight',
+				title: 'Flower garden',
 				poster: posterEight,
 				source: [
 					{
@@ -104,7 +108,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleNine',
+				title: 'sampleBig Buck Bunny - take four',
 				url: Nineth,
 				source: [
 					{
@@ -114,7 +118,7 @@ class Home extends React.Component {
 				]
 			},
 			{
-				title: 'sampleTen',
+				title: 'Toy tank',
 				url: Tenth,
 				source: [
 					{
@@ -131,93 +135,143 @@ class Home extends React.Component {
 
 
 	render() {
+		const second = this.state.videos.slice(5, 9)
 		return (
-			<section className="wrapper">
-				<div className="carousel-container">
-					<h1>Home</h1>
-					<ItemsCarousel
-						Placeholder configurations
-						enablePlaceholder
-						numberOfPlaceholderItems={0}
-						minimumPlaceholderTime={1000}
-						placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
+			<>
+				<section className="wrapper">
+					<div className="carousel-container">
+						<h1>Top picks</h1>
+						<ItemsCarousel
+							Placeholder configurations
+							enablePlaceholder
+							numberOfPlaceholderItems={0}
+							minimumPlaceholderTime={1000}
+							placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
 
-						// Carousel configurations
-						numberOfCards={4}
-						gutter={12}
-						showSlither={true}
-						firstAndLastGutter={true}
-						infiniteLoop
-						freeScrolling={false}
+							// Carousel configurations
+							numberOfCards={4}
+							gutter={12}
+							showSlither={true}
+							firstAndLastGutter={true}
+							infiniteLoop
+							freeScrolling={false}
 
-						// Active item configurations
-						requestToChangeActive={this.changeActiveItem}
-						activeItemIndex={this.state.activeItemIndex}
-						activePosition={'center'}
+							// Active item configurations
+							requestToChangeActive={this.changeActiveItem}
+							activeItemIndex={this.state.activeItemIndex}
+							activePosition={'center'}
 
-						chevronWidth={60}
-						rightChevron={
-							<Button 
-								shape="circle"
-								style={{
-								borderRadius: '50%',
-								width: '32px',
-								height: '32px',
-								padding: 0,
-								fontSize: '16px',
-								border: 'none',
-								outline: 'none'
-								}}>
-								<Icon type="right" />
-							</Button>
-						}
-						leftChevron={
-							<Button 
-								shape="circle" 
-								style={{
-								borderRadius: '50%',
-								width: '32px',
-								height: '32px',
-								padding: 0,
-								fontSize: '16px',
-								border: 'none',
-								outline: 'none'
-								}}
-							>
-								<Icon type="left" />
-							</Button>
-						}
-						outsideChevron={false}
-					>
-						{
-							this.state.videos.map((video, i) => {
-								return (
-									<>
-										<Link
-											to={{
-												pathname: `videos/${video.title}`,
-												state: {
-													source: video.source
-												}
-											}}
-										>
-											<Videojs
-												autoplay={false}
-												playbackRates={[0.5, 1, 1.25, 1.5, 2]}
-												width={250}
-												height={150}
-												// controls={true}
-												sources={video.source}
-												poster={video.poster ? video.poster : ''}
-											/>
-										</Link>
-									</>
-								)
-							})
-						}
-					</ItemsCarousel>
-				</div >
-			</section >
+							chevronWidth={60}
+							rightChevron={
+								<Button
+									shape="circle"
+									style={{
+										backgroundColor: '#fff',
+										borderRadius: '50%',
+										width: '50px',
+										height: '50px',
+										padding: 0,
+										fontSize: '16px',
+										border: 'none',
+										outline: 'none'
+									}}>
+									<Icon type="right" />
+								</Button>
+							}
+							leftChevron={
+								<Button
+									shape="circle"
+									style={{
+										backgroundColor: '#fff',
+										borderRadius: '50%',
+										width: '50px',
+										height: '50px',
+										padding: 0,
+										fontSize: '16px',
+										border: 'none',
+										outline: 'none'
+									}}
+								>
+									<Icon type="left" />
+								</Button>
+							}
+							outsideChevron={true}
+						>
+							{
+								this.state.videos.map((video, i) => {
+									return (
+										<div>
+											<Link
+												to={{
+													pathname: `videos/${video.title}`,
+													state: {
+														source: video.source
+													}
+												}}
+											>
+												<Videojs
+													autoplay={false}
+													width={250}
+													height={150}
+													sources={video.source}
+													poster={video.poster ? video.poster : ''}
+												/>
+											</Link>
+											<h4>{video.title}</h4>
+										</div>
+									)
+								})
+							}
+						</ItemsCarousel>
+					</div >
+				</section >
+				{/* Second Row */}
+				<section className="wrapper">
+					<div className="carousel-container">
+						<h1>Our recommendations</h1>
+						<ItemsCarousel
+							Placeholder configurations
+							enablePlaceholder
+							numberOfPlaceholderItems={0}
+							minimumPlaceholderTime={1000}
+							placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
+
+							// Carousel configurations
+							numberOfCards={4}
+							gutter={12}
+							showSlither={false}
+							firstAndLastGutter={false}
+						>
+							{
+								second.map((video, i) => {
+									return (
+										<div>
+											<Link
+												to={{
+													pathname: `videos/${video.title}`,
+													state: {
+														source: video.source
+													}
+												}}
+											>
+												<Videojs
+													autoplay={false}
+													width={250}
+													height={150}
+													controls={false}
+													sources={video.source}
+													poster={video.poster ? video.poster : ''}
+												/>
+											</Link>
+											<h4>{video.title}</h4>
+										</div>
+									)
+								})
+							}
+						</ItemsCarousel>
+					</div>
+				</section>
+			</>
 		)
 	}
 }

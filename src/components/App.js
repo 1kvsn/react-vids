@@ -5,12 +5,13 @@ import {
 } from 'react-router-dom';
 import { withFirebase } from './Firebase';
 
-import Navigation from './Navigation';
+import Header from './Header';
 import LandingPage from './Landing';
 import SignUpPage from './SignUp';
 import SignInPage from './SignIn';
 import HomePage from './Home';
 import VideoPlayer from './VideoPlayer';
+import Footer from './Footer';
 
 class App extends React.Component {
 	constructor(props) {
@@ -22,30 +23,30 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
+		this.listener = this.props.firebase.auth.onAuthStateChanged(
 			authUser => {
 				authUser
 					? this.setState({ authUser })
 					: this.setState({ authUser: null });
 			});
 	}
-	
+
 	componentWillUnmount() {
-    this.listener();
-  }
+		this.listener();
+	}
 
 	render() {
 		return (
 			<Router>
 				<div>
-					<Navigation authUser={this.state.authUser} />
-					<hr />
+					<Header authUser={this.state.authUser} />
 					<Route exact path={'/'} component={LandingPage} />
 					<Route path={'/signup'} component={SignUpPage} />
 					<Route path={'/signin'} component={SignInPage} />
 					<Route path={'/home'} component={HomePage} />
 					<Route path={'/videos/:id'} component={VideoPlayer} />
 				</div>
+				<Footer />
 			</Router>
 		);
 	}

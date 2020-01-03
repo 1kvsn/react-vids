@@ -1,12 +1,13 @@
-## React-vids
+# React-vids (live @ https://react-vids.netlify.com/)
 
 * Video library built using ReactJS. Video Player implemented using VideoJS.
 
-# Features
+## Features
 
 * Firebase login system implemented.
 * Displays all videos in carousel view in homepage.
 * Click on any video and it opens up in player mode. It displays currently played video in the right side along with other videos in the queue.
+* When a video ends, overlay cards show up suggesting next content to watch.
 
 TODO:
 
