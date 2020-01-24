@@ -4,10 +4,10 @@
 
 ## Features
 
-* Firebase authentication implemented.
+* Firebase authentication implemented. (currently in disabled state )
 * Displays all videos in carousel view in homepage.
 * Click on any video and it opens up in player mode.
-* When a video ends, overlay cards show up suggesting next content to watch.
+* When a video ends, overlay cards show up suggesting next content to watch. (overlay cards are just sample images at this time)
 
 
 ## Available Scripts
